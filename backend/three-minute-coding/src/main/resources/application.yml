@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://three-minute-coding-database.cewwqchgjyud.ap-southeast-2.rds.amazonaws.com:3306/testdb
+    username: root
+    password: 3minutecoding
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+ask:
+  chat-gpt:
+    url: https://api.openai.com/v1/chat/completions
+    api-key: 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
+  bing:
+    url: https://api.bing.microsoft.com/
+    api-key: b107f86119954fadab8eed3e4350192e
