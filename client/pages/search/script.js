@@ -17,3 +17,7 @@ function addMessage(text, className) {
   messageContainer.append(message);
   $("#chat-body").append(messageContainer);
 }
+
+function EnterKeyEvent() {
+
+}
