@@ -11,8 +11,11 @@ spring:
 
 ask:
   chat-gpt:
-    url: https://api.openai.com/v1/chat/completions
-    api-key: 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
+    url: https://api.openai.com/v1
+    uri: /chat/completions
+    api-key: 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
   bing:
     url: https://api.bing.microsoft.com/
     api-key: b107f86119954fadab8eed3e4350192e
+
+
