@@ -2,6 +2,7 @@ package com.side.threeminutecoding.ask;
 
 import com.side.threeminutecoding.domain.dto.ChatGptRqDto;
 import com.side.threeminutecoding.domain.dto.ChatGptRsDto;
+import com.side.threeminutecoding.domain.enums.Prompt;
 import com.side.threeminutecoding.util.ObjectMapperUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -35,7 +36,7 @@ public class ChatGptComponent {
                 .build();
 
         ChatGptRqDto chatGptRqDto = new ChatGptRqDto(model);
-        chatGptRqDto.setMessages("system", "너는 모든 걸 알고 있는 든든한 시니어 개발자야");
+        chatGptRqDto.setMessages("system", Prompt.SYSTEM.getMessage());
         chatGptRqDto.setMessages("user", question);
         String body = ObjectMapperUtils.writeValueAsString(chatGptRqDto);
 

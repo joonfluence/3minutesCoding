@@ -23,9 +23,14 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-webflux' // webclient
+    // webclient
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
 
+    // json library
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.2'
+
+    // macOs dns bug
+    implementation 'io.netty:netty-resolver-dns-native-macos:4.1.68.Final:osx-aarch_64'
 
 //	implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
