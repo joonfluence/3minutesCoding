@@ -1,6 +1,115 @@
+:root {
+  --play: running;
+  --direction: normal;
+  --duration: 30s;
+  --delay: 0s;
+  --iteration-count: infinite;
+}
+
+.start-background {
+  min-width: 100%;
+  min-height: 160px;
+  background-repeat: repeat-x;
+  background-image: url("https://chowon.in/assets/home-background.png");
+  background-size: contain;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.wrapper {
+  height: 30vh;
+  max-height: 380px;
+}
+
+.container {
+  overflow-x: hidden;
+  display: flex;
+  justify-content: space-between;
+  --pause-on-hover: running;
+  --pause-on-click: running;
+}
+
+nav {
+  background-color: #333333;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li {
+  display: inline-block;
+}
+
+ul > li > a {
+  display: block;
+  margin: 0 auto;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px;
+}
+
+ul > li > a > div {
+  display: flex;
+  justify-content: center;
+}
+
+ul > li > a > div:last-child {
+  margin-top: 5px;
+}
+
+.article {
+  width: 100%;
+  flex: 0 0 auto;
+  min-width: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  animation: slide var(--duration) linear var(--delay) var(--iteration-count);
+  animation-play-state: var(--play);
+  animation-delay: var(--delay);
+  animation-direction: var(--direction);
+}
+
+@keyframes slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-1500px, 0, 0); /* The image width */
+  }
+}
+
+a:hover {
+  background-color: #555555;
+}
+
+.section {
+  height: 500px;
+  padding: 50px;
+}
+
+.section h2 {
+  margin-top: 0;
+}
+
+.section p {
+  margin: 0;
+}
+
 body {
+  font-family: Arial, sans-serif;
   background-color: #f2f2f2;
   font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .chat-container {
