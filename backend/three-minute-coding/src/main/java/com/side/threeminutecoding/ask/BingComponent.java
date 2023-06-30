@@ -1,17 +1,20 @@
 package com.side.threeminutecoding.ask;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
 public class BingComponent {
 
-    private final AskConfigProperties askConfigProperties;
+    @Value("${ask.bing.url}")
+    private String url;
 
-    public String ask() {
-        askConfigProperties.getBingApiKey();
-        askConfigProperties.getBingUrl();
+    @Value("${ask.bing.api-key}")
+    private String apiKey;
+
+    public String ask(String question) {
         return "answer";
     }
 
