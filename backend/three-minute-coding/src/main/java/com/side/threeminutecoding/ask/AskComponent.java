@@ -1,9 +1,9 @@
-package com.side.threeminutecoding;
+package com.side.threeminutecoding.ask;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class AiAskComponent {
+public class AskComponent {
 
     public String ask(String question) {
 //        ChatGptUtils
