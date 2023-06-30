@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StopWatch;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Component
@@ -34,18 +35,24 @@ public class ChatGptComponent {
                 .build();
 
         ChatGptRqDto chatGptRqDto = new ChatGptRqDto(model);
-        chatGptRqDto.setName("임승현");
         chatGptRqDto.setMessages("system", "너는 모든 걸 알고 있는 든든한 시니어 개발자야");
         chatGptRqDto.setMessages("user", question);
+        String body = ObjectMapperUtils.writeValueAsString(chatGptRqDto);
+
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
 
         ChatGptRsDto chatGptRsDto = webClient.post()
                 .uri(uri)
-                .bodyValue(ObjectMapperUtils.writeValueAsString(chatGptRqDto))
+                .bodyValue(body)
                 .retrieve()
                 .bodyToMono(ChatGptRsDto.class)
                 .block();
 
-        return chatGptRsDto.toString();
+        stopWatch.stop();
+        System.out.println(stopWatch.getTotalTimeSeconds());
+
+        return chatGptRsDto.getChoices().get(0).getMessage().getContent();
 
     }
 

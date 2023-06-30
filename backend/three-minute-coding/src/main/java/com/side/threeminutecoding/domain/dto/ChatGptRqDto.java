@@ -16,7 +16,6 @@ public class ChatGptRqDto {
 
     private String model;
     private List<ChatGptMessageDto> messages;
-    private String name;
 
     public ChatGptRqDto(String model) {
         this.model = model;
@@ -24,11 +23,10 @@ public class ChatGptRqDto {
 
     public void setMessages(String role, String context) {
 
-        ChatGptMessageDto chatGptMessageDto = new ChatGptMessageDto(role, context);
-
         if (CollectionUtils.isEmpty(messages)) {
             messages = new ArrayList<>();
         }
+        ChatGptMessageDto chatGptMessageDto = new ChatGptMessageDto(role, context);
         messages.add(chatGptMessageDto);
 
     }

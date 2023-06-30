@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -33,7 +35,7 @@ public class ChatGptRsDto {
     private String id;
     private String object;
     private Long created;
-    private Choices choices;
+    private List<Choices> choices;
     private Usage usage;
 
     @Getter
