@@ -1,9 +1,9 @@
 package com.side.threeminutecoding;
 
 import com.side.threeminutecoding.ask.AskComponent;
+import com.side.threeminutecoding.domain.dto.AskRq;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -12,9 +12,9 @@ public class QuestionController {
 
     private final AskComponent askComponent;
 
-    @GetMapping("/ask")
-    public String ask(@RequestParam("question") String question) {
-        return askComponent.ask(question);
+    @PostMapping("/ask")
+    public String ask(AskRq rq) {
+        return askComponent.ask(rq.getQuestion());
     }
 
 }
